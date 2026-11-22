@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Diego Macêdo | Primal Branding &amp; Founder-Led Growth no audiovisual</title>
+  <meta name="description" content="Resolvemos o núcleo de um posicionamento com rigor técnico e direção autoral em Porto Velho — visão de founder para founder, estruturada para autoridade e retorno em tráfego pago.">
+  <link rel="canonical" href="https://diegomacedo.vercel.app">
+  <meta property="og:title" content="Diego Macêdo | Primal Branding &amp; Founder-Led Growth no audiovisual">
+  <meta property="og:description" content="Resolvemos o núcleo de um posicionamento com rigor técnico e direção autoral em Porto Velho — visão de founder para founder, estruturada para autoridade e retorno em tráfego pago.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Tipografia editorial: Fraunces para títulos e Inter para corpo e interface -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --d: 'Fraunces', Georgia, serif;
+      --s: 'Inter', system-ui, -apple-system, sans-serif;
+      --bg: #000000;
+      --ink: #f5f5f5;
+      --mut: #a8a8a8;
+      --line: #2c2c2c;
+      --ember: #ff7a45;
+    }
+
+    /* Transição tonal de Black Ops (t0) para White Ops (t3) */
+    .t0 { --bg: #000000; --ink: #f5f5f5; --mut: #a8a8a8; --line: #2c2c2c; --ember: #ff7a45; }
+    .t1 { --bg: #3a3a3a; --ink: #f5f5f5; --mut: #cfcfcf; --line: #555555; --ember: #ffa27a; }
+    .t2 { --bg: #bdbdbd; --ink: #0a0a0a; --mut: #3a3a3a; --line: #8c8c8c; --ember: #8f2f08; }
+    .t3 { --bg: #ffffff; --ink: #0a0a0a; --mut: #555555; --line: #d4d4d4; --ember: #b5481e; }
+
+    header, section, footer {
+      background: var(--bg);
+      color: var(--ink);
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    html {
+      background: linear-gradient(#000000 50%, #ffffff 50%);
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font: 400 18px/1.7 var(--s);
+      padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--ember);
+      outline-offset: 3px;
+    }
+
+    ::selection {
+      background: var(--ember);
+      color: #ffffff;
+    }
+
+    .w {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Cabeçalho e navegação */
+    .top {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      min-height: 76px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font: 400 1.25rem var(--d);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--mut);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--ink);
+    }
+
+    /* Hero */
+    .hero {
+      padding: clamp(72px, 14vw, 160px) 0 clamp(56px, 9vw, 110px);
+    }
+
+    .eyebrow {
+      font-size: 0.74rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin: 0 0 28px;
+      font-weight: 500;
+    }
+
+    h1, h2 {
+      font-family: var(--d);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5.6vw, 4.2rem);
+      line-height: 1.1;
+      max-width: 20ch;
+    }
+
+    .hero:has(.lede) h1 {
+      max-width: 22ch;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3.2vw, 2.3rem);
+      line-height: 1.25;
+    }
+
+    h3 {
+      font: 500 0.78rem var(--s);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    .rule {
+      width: 56px;
+      height: 2px;
+      background: var(--ember);
+      margin: 36px 0;
+    }
+
+    .lede {
+      color: var(--mut);
+      max-width: 58ch;
+      margin: 0 0 40px;
+    }
+
+    /* Botões de ação */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--ink);
+      color: var(--bg);
+      border: 0;
+      padding: 18px 32px;
+      font: 500 0.8rem var(--s);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      background: var(--ember);
+      color: #ffffff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+    }
+
+    .btn-ghost:hover {
+      background: var(--ember);
+      border-color: var(--ember);
+      color: #ffffff;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Seções */
+    .sec {
+      padding: clamp(56px, 9vw, 110px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .cols {
+      display: grid;
+      gap: 48px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 800px) {
+      .cols {
+        grid-template-columns: 1.3fr 1fr;
+      }
+    }
+
+    .cols p {
+      margin: 0 0 26px;
+      color: var(--mut);
+    }
+
+    /* Lista de frentes */
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      font: 300 clamp(1.3rem, 3vw, 2rem) var(--d);
+      transition: color 0.2s ease;
+    }
+
+    .list a:hover {
+      color: var(--ember);
+    }
+
+    .list i {
+      font-style: normal;
+      color: var(--ember);
+    }
+
+    .list li:first-child a {
+      border-top: 1px solid var(--line);
+    }
+
+    /* Cards de frentes */
+    .sub-grid {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: 1fr;
+      margin-top: 44px;
+    }
+
+    @media (min-width: 800px) {
+      .sub-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card p {
+      color: var(--mut);
+      font-size: 0.96rem;
+      margin: 0 0 24px;
+    }
+
+    .card .btn {
+      padding: 14px 22px;
+      font-size: 0.74rem;
+      align-self: flex-start;
+    }
+
+    /* Etapas do método */
+    .steps {
+      list-style: none;
+      counter-reset: s;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .steps li {
+      counter-increment: s;
+      border-top: 1px solid var(--ink);
+      padding-top: 20px;
+    }
+
+    .steps li::before {
+      content: counter(s, decimal-leading-zero);
+      display: block;
+      font: 300 1.5rem var(--d);
+      color: var(--ember);
+      margin-bottom: 12px;
+    }
+
+    .steps p {
+      margin: 0;
+      color: var(--mut);
+    }
+
+    /* Atendimento direto parametrizado */
+    .cta-panel {
+      display: grid;
+      gap: 36px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 800px) {
+      .cta-panel {
+        grid-template-columns: 1.2fr 1fr;
+        align-items: end;
+      }
+    }
+
+    .route-buttons {
+      display: grid;
+      gap: 14px;
+    }
+
+    .route-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      border: 1px solid var(--ink);
+      text-decoration: none;
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .route-btn:hover {
+      background: var(--ember);
+      border-color: var(--ember);
+      color: #ffffff;
+    }
+
+    .route-btn strong {
+      display: block;
+      font: 500 0.84rem var(--s);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .route-btn span {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.82;
+      margin-top: 4px;
+    }
+
+    .route-btn i {
+      font-style: normal;
+      font-size: 1.3rem;
+    }
+
+    /* Rodapé */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 36px 0;
+      font-size: 0.85rem;
+      color: var(--mut);
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Modal de privacidade */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 60;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #111111;
+      color: #f5f5f5;
+      border: 1px solid #333333;
+      max-width: 600px;
+      width: 100%;
+      padding: 28px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .modal-box h3 {
+      color: var(--ember);
+      margin-bottom: 12px;
+    }
+
+    .modal-box button {
+      background: #f5f5f5;
+      color: #000000;
+      border: 0;
+      padding: 12px 22px;
+      font: 500 0.78rem var(--s);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    /* Banner de consentimento */
+    .consent {
+      border: 1px solid #555555;
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      max-width: 560px;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      padding: 18px 22px;
+      z-index: 50;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .consent[hidden] {
+      display: none;
+    }
+
+    .consent div {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .consent button {
+      padding: 10px 18px;
+      background: #f5f5f5;
+      color: #0a0a0a;
+      border: 0;
+      font: 500 0.75rem var(--s);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .consent button.n {
+      background: transparent;
+      color: #f5f5f5;
+      border: 1px solid #666666;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Diego Macêdo",
+    "description": "Resolvemos o núcleo de um posicionamento com rigor técnico e direção autoral em Porto Velho — visão de founder para founder, estruturada para autoridade e retorno em tráfego pago.",
+    "areaServed": "Porto Velho, Rondônia",
+    "telephone": "+5569993852651",
+    "url": "https://diegomacedo.vercel.app"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Cabeçalho e navegação principal -->
+  <header class="top t0" data-tone>
+    <div class="w bar">
+      <a class="brand" href="#topo">Diego Macêdo</a>
+      <nav aria-label="Navegação principal">
+        <a href="#lastro">Lastro</a>
+        <a href="#frentes">Frentes</a>
+        <a href="#metodo">Método</a>
+        <a href="#atendimento">Atendimento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+    <!-- Hero principal -->
+    <section class="hero t0" data-tone>
+      <div class="w">
+        <p class="eyebrow">Primal Branding &amp; Founder-Led Growth no audiovisual</p>
+        <h1>Narrativas visuais com lastro original: construímos o Primal Branding da sua marca — precisão nos detalhes que sustentam autoridade, visão de founder para founder.</h1>
+        <div class="rule"></div>
+        <p class="lede">Resolvemos o núcleo de um posicionamento com rigor técnico e direção autoral em Porto Velho — visão de founder para founder, estruturada para autoridade e retorno em tráfego pago.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#atendimento">Iniciar atendimento no WhatsApp</a>
+          <a class="btn btn-ghost" href="#frentes">Ver frentes de atuação</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção O Lastro Original -->
+    <section id="lastro" class="sec t1" data-tone>
+      <div class="w">
+        <p class="eyebrow">O lastro original</p>
+        <div class="cols">
+          <div>
+            <h2>Cada elemento criativo, cada decisão de cena e cada entrega carrega um lastro original focado no Primal Branding de quem contrata — seja uma marca liderada pelo fundador, um evento ou uma sessão específica.</h2>
+          </div>
+          <div>
+            <h3>Assinatura</h3>
+            <p>Autoria visual, direção de cena e leitura de persona aplicada à imagem com precisão de founder para founder.</p>
+            <h3>Diferencial</h3>
+            <p>Não entrega apenas registro mecânico ou pacote genérico: traduz a identidade real da pessoa, do evento ou da empresa em ativos visuais de alta percepção para tráfego pago.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Frentes de Atuação -->
+    <section id="frentes" class="sec t1" data-tone>
+      <div class="w">
+        <p class="eyebrow">Frentes de atuação</p>
+        <ul class="list">
+          <li><a href="https://wa.me/5569993852651" data-wa-frente="marcas" target="_blank" rel="noopener"><span>Founder-Led Growth &amp; Marcas</span><i>&rarr;</i></a></li>
+          <li><a href="https://wa.me/5569993852651" data-wa-frente="eventos" target="_blank" rel="noopener"><span>Eventos, Ensaios &amp; Sessões Específicas</span><i>&rarr;</i></a></li>
+          <li><a href="https://wa.me/5569993852651" data-wa-frente="portfolio" target="_blank" rel="noopener"><span>Autoridade, Bastidores &amp; Créditos</span><i>&rarr;</i></a></li>
+        </ul>
+
+        <div class="sub-grid">
+          <div class="card">
+            <div>
+              <h3>Founder-Led Growth &amp; Marcas</h3>
+              <p>Posicionamento visual para empresários e empresas que precisam elevar autoridade comercial e preparar ativos para campanhas de tráfego pago.</p>
+            </div>
+            <a class="btn" href="https://wa.me/5569993852651" data-wa-frente="marcas" target="_blank" rel="noopener">Falar sobre marca &rarr;</a>
+          </div>
+
+          <div class="card">
+            <div>
+              <h3>Eventos, Ensaios &amp; Sessões Específicas</h3>
+              <p>Cobertura de eventos, ensaios e sessões pontuais com direção autoral, leitura de atmosfera e acabamento cinematográfico sob medida.</p>
+            </div>
+            <a class="btn" href="https://wa.me/5569993852651" data-wa-frente="eventos" target="_blank" rel="noopener">Falar sobre evento &rarr;</a>
+          </div>
+
+          <div class="card">
+            <div>
+              <h3>Autoridade, Bastidores &amp; Créditos</h3>
+              <p>Atuação em Porto Velho com rigor técnico, bastidores reais de direção e lastro visual para quem exige consistência de ponta a ponta.</p>
+            </div>
+            <a class="btn" href="https://wa.me/5569993852651" data-wa-frente="portfolio" target="_blank" rel="noopener">Ver portfólio &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Como Funciona na Prática -->
+    <section id="metodo" class="sec t2" data-tone>
+      <div class="w">
+        <p class="eyebrow">Como funciona na prática</p>
+        <ol class="steps">
+          <li>
+            <h3>Alinhar a identidade</h3>
+            <p>Leitura estratégica da pessoa, da marca ou do momento antes de posicionar a câmera.</p>
+          </li>
+          <li>
+            <h3>Dirigir a cena</h3>
+            <p>Cada enquadramento e decisão visual nasce do seu Primal Branding, nunca de fórmulas prontas.</p>
+          </li>
+          <li>
+            <h3>Produzir com lastro</h3>
+            <p>Execução técnica com assinatura cinematográfica, rigor nos detalhes e coerência comercial.</p>
+          </li>
+          <li>
+            <h3>Entregar e medir</h3>
+            <p>Ativos estruturados para tráfego pago com origem e referência rastreadas desde o primeiro clique.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Seção Atendimento Direto Parametrizado -->
+    <section id="atendimento" class="sec t3" data-tone>
+      <div class="w cta-panel">
+        <div>
+          <p class="eyebrow">Atendimento direto</p>
+          <h2>Selecione sua posição e fale direto no WhatsApp.</h2>
+          <div class="rule"></div>
+          <p class="lede">Ao clicar na opção correspondente, o WhatsApp abre com a identificação da sua posição, código de referência único (DM-XXXX) e parâmetros de origem para agilizar a qualificação e o agendamento.</p>
+        </div>
+
+        <div class="route-buttons">
+          <a class="route-btn" href="https://wa.me/5569993852651" data-wa-frente="marcas" target="_blank" rel="noopener">
+            <div>
+              <strong>Sou Founder / Empresa</strong>
+              <span>Posicionamento de marca, liderança e ativos para tráfego pago</span>
+            </div>
+            <i>&rarr;</i>
+          </a>
+
+          <a class="route-btn" href="https://wa.me/5569993852651" data-wa-frente="eventos" target="_blank" rel="noopener">
+            <div>
+              <strong>Evento / Ensaio / Sessão</strong>
+              <span>Direção autoral, data específica ou produção sob medida</span>
+            </div>
+            <i>&rarr;</i>
+          </a>
+
+          <a class="route-btn" href="https://wa.me/5569993852651" data-wa-frente="produtor" target="_blank" rel="noopener">
+            <div>
+              <strong>Produtor / Parceiro Comercial</strong>
+              <span>Demanda recorrente, projeto especial ou alinhamento de escopo</span>
+            </div>
+            <i>&rarr;</i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="bot t3" data-tone>
+    <div class="w foot">
+      <span>&copy; 2026 Diego Macêdo · Porto Velho, Rondônia</span>
+      <span>
+        <a href="https://wa.me/5569993852651" data-wa-frente="geral" target="_blank" rel="noopener">WhatsApp (69) 99385-2651</a>
+        · <a href="#privacidade" id="abrir-privacidade-foot">Privacidade</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Modal de Privacidade -->
+  <div class="modal" id="modal-privacidade" role="dialog" aria-modal="true" aria-labelledby="titulo-privacidade">
+    <div class="modal-box">
+      <h3 id="titulo-privacidade">Política de Privacidade &amp; Rastreamento</h3>
+      <p>Utilizamos parâmetros técnicos de URL (UTMs, identificadores de campanha e posição selecionada) exclusivamente para reconhecer a origem do contato e iniciar o atendimento no WhatsApp com contexto preciso.</p>
+      <p>Nenhuma informação é vendida ou compartilhada com terceiros fora da operação de atendimento da Diego Macêdo &amp; Synaptyca.</p>
+      <button type="button" id="fechar-privacidade">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Banner de Consentimento -->
+  <div class="consent" id="banner-consent" hidden>
+    <span>Usamos parâmetros técnicos de origem (UTMs) para identificar de qual frente e campanha você chegou ao atendimento.</span>
+    <div>
+      <button type="button" id="aceitar-consent">Concordar</button>
+      <button type="button" class="n" id="recusar-consent">Apenas essencial</button>
+    </div>
+  </div>
+
+  <!-- Configuração base -->
+  <script id="cfg" type="application/json">
+  {
+    "whatsappNumber": "5569993852651",
+    "tracking": {
+      "ga4": "",
+      "metaPixel": "",
+      "gtm": ""
+    },
+    "mensagensPorFrente": {
+      "marcas": "Olá Diego, vim pelo site. Sou Founder / Empresa e quero estruturar o Primal Branding e a autoridade visual da minha operação.",
+      "eventos": "Olá Diego, vim pelo site. Quero alinhar disponibilidade e proposta para um Evento / Ensaio / Sessão específica.",
+      "produtor": "Olá Diego, vim pelo site. Sou Produtor / Parceiro Comercial e quero conversar sobre um projeto audiovisual.",
+      "portfolio": "Olá Diego, vim pelo site e quero conhecer mais sobre sua autoridade, bastidores e produções.",
+      "geral": "Olá Diego, vim pelo site e quero conversar sobre um projeto audiovisual."
+    }
+  }
+  </script>
+
+  <script>
+    (function () {
+      // Carrega configuração JSON com fallback seguro
+      var cfg = {
+        whatsappNumber: '5569993852651',
+        mensagensPorFrente: {}
+      };
+
+      try {
+        var cfgEl = document.getElementById('cfg');
+        if (cfgEl && cfgEl.textContent) {
+          cfg = JSON.parse(cfgEl.textContent);
+        }
+      } catch (err) {
+        // Mantém configuração padrão em caso de erro de parse
+      }
+
+      // 1. Atualização dinâmica de faixas tonais (Black Ops t0 -> White Ops t3)
+      var updateTone = function () {
+        var els = [].slice.call(document.querySelectorAll('[data-tone]'));
+        var H = Math.max(document.documentElement.scrollHeight, 1);
+
+        els.forEach(function (el, i) {
+          var r = el.getBoundingClientRect();
+          var centerRatio = (r.top + window.scrollY + r.height / 2) / H;
+          var k = Math.min(3, Math.max(0, Math.floor(centerRatio * 4)));
+
+          if (i === 0) k = 0;
+          if (i === els.length - 1) k = 3;
+
+          var cleaned = el.className.replace(/\bt[0-3]\b/g, '').replace(/\s+/g, ' ').trim();
+          el.className = cleaned + ' t' + k;
+        });
+      };
+
+      updateTone();
+      window.addEventListener('load', updateTone);
+      window.addEventListener('resize', updateTone);
+      window.addEventListener('scroll', updateTone, { passive: true });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateTone);
+      }
+
+      // 2. Captura e persistência de parâmetros UTM, origem e posição
+      var params = new URLSearchParams(window.location.search);
+      var trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'gclid', 'pos'];
+      var utms = {};
+
+      trackingKeys.forEach(function (key) {
+        var val = params.get(key);
+        if (val) {
+          utms[key] = val;
+          try {
+            sessionStorage.setItem('dm_' + key, val);
+          } catch (e) {}
+        } else {
+          try {
+            var saved = sessionStorage.getItem('dm_' + key);
+            if (saved) utms[key] = saved;
+          } catch (e) {}
+        }
+      });
+
+      // 3. Geração de referência única (DM-XXXX) e URL parametrizada para WhatsApp
+      var gerarRef = function () {
+        return 'DM-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+      };
+
+      var buildWhatsAppUrl = function (frente) {
+        var mensagens = cfg.mensagensPorFrente || {};
+        var baseMsg = mensagens[frente] || mensagens.geral || 'Olá Diego, vim pelo site.';
+
+        var tagPosicao = ({
+          marcas: 'Sou Founder / Empresa',
+          eventos: 'Evento / Ensaio / Sessão',
+          produtor: 'Produtor / Parceiro Comercial',
+          portfolio: 'Autoridade / Portfólio',
+          geral: 'Atendimento Geral'
+        })[frente] || String(frente);
+
+        var origemParts = [];
+        if (utms.utm_source) origemParts.push('source:' + utms.utm_source);
+        if (utms.utm_medium) origemParts.push('medium:' + utms.utm_medium);
+        if (utms.utm_campaign) origemParts.push('campaign:' + utms.utm_campaign);
+        if (utms.utm_content) origemParts.push('content:' + utms.utm_content);
+        if (utms.pos) origemParts.push('pos:' + utms.pos);
+
+        var refCode = gerarRef();
+        var metaLinha = '[Posição: ' + tagPosicao + ' | Ref: ' + refCode + (origemParts.length ? ' | Origem: ' + origemParts.join(' | ') : ' | Origem: direto') + ']';
+        var fullText = baseMsg + '\n\n' + metaLinha;
+
+        return 'https://wa.me/' + cfg.whatsappNumber + '?text=' + encodeURIComponent(fullText);
+      };
+
+      document.querySelectorAll('[data-wa-frente]').forEach(function (btn) {
+        var frente = btn.getAttribute('data-wa-frente') || 'geral';
+        btn.setAttribute('href', buildWhatsAppUrl(frente));
+
+        btn.addEventListener('click', function () {
+          btn.setAttribute('href', buildWhatsAppUrl(frente));
+        });
+      });
+
+      // 4. Controle do Modal de Privacidade
+      var modal = document.getElementById('modal-privacidade');
+      var abrirFoot = document.getElementById('abrir-privacidade-foot');
+      var fecharModal = document.getElementById('fechar-privacidade');
+
+      if (abrirFoot && modal) {
+        abrirFoot.addEventListener('click', function (e) {
+          e.preventDefault();
+          modal.classList.add('open');
+        });
+      }
+
+      if (fecharModal && modal) {
+        fecharModal.addEventListener('click', function () {
+          modal.classList.remove('open');
+        });
+      }
+
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) {
+            modal.classList.remove('open');
+          }
+        });
+      }
+
+      // 5. Controle do Banner de Consentimento
+      var banner = document.getElementById('banner-consent');
+      try {
+        if (!localStorage.getItem('dm_consent') && banner) {
+          banner.hidden = false;
+        }
+      } catch (e) {}
+
+      var setConsent = function (val) {
+        try {
+          localStorage.setItem('dm_consent', val);
+        } catch (e) {}
+        if (banner) {
+          banner.hidden = true;
+        }
+      };
+
+      var btnAceitar = document.getElementById('aceitar-consent');
+      var btnRecusar = document.getElementById('recusar-consent');
+
+      if (btnAceitar) {
+        btnAceitar.addEventListener('click', function () {
+          setConsent('full');
+        });
+      }
+
+      if (btnRecusar) {
+        btnRecusar.addEventListener('click', function () {
+          setConsent('essential');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
